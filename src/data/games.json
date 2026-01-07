@@ -1,0 +1,258 @@
+[
+  {
+    "id": 326243,
+    "name": "Elden Ring",
+    "released": "2022-02-25",
+    "rating": 4.39,
+    "background_image": "https://media.rawg.io/media/games/b29/b294fdd866dcdb643e7bab370a552855.jpg",
+    "genres": [
+      "Action",
+      "RPG"
+    ],
+    "platforms": [
+      "PC",
+      "PlayStation 5",
+      "Xbox One",
+      "PlayStation 4",
+      "Xbox Series S/X"
+    ],
+    "metacritic": 95,
+    "tracked": true,
+    "trackedAt": "2026-01-06T04:13:29.996Z",
+    "events": []
+  },
+  {
+    "id": 861867,
+    "name": "Elden Ring - The Unalloyed Dream",
+    "released": "2022-10-05",
+    "rating": 0,
+    "background_image": "https://media.rawg.io/media/screenshots/984/984bd7d63bca34a2f8c501fef523437c.jpg",
+    "genres": [
+      "RPG"
+    ],
+    "platforms": [
+      "PC",
+      "macOS"
+    ],
+    "metacritic": null,
+    "tracked": true,
+    "trackedAt": "2026-01-06T23:11:04.736Z",
+    "events": []
+  },
+  {
+    "id": 977470,
+    "name": "Elden Ring: Shadow of the Erdtree",
+    "released": "2024-06-21",
+    "rating": 4.51,
+    "background_image": "https://media.rawg.io/media/screenshots/0ba/0bae7160eedc1f7d85a8d2db70cf1ec9.jpg",
+    "genres": [
+      "Action",
+      "RPG"
+    ],
+    "platforms": [
+      "PC",
+      "PlayStation 5",
+      "Xbox One",
+      "PlayStation 4",
+      "Xbox Series S/X"
+    ],
+    "metacritic": null,
+    "tracked": true,
+    "trackedAt": "2026-01-06T23:11:08.507Z",
+    "events": []
+  },
+  {
+    "id": 997548,
+    "name": "Elden Ring Nightreign",
+    "released": "2025-05-30",
+    "rating": 3.92,
+    "background_image": "https://media.rawg.io/media/games/a14/a143ef815d323a3000840fc774d834c7.jpg",
+    "genres": [
+      "Action",
+      "RPG"
+    ],
+    "platforms": [
+      "PC",
+      "PlayStation 5",
+      "Xbox One",
+      "PlayStation 4",
+      "Xbox Series S/X"
+    ],
+    "metacritic": null,
+    "tracked": true,
+    "trackedAt": "2026-01-06T23:19:09.121Z",
+    "events": []
+  },
+  {
+    "id": 757500,
+    "name": "Elden Ring Test",
+    "released": "2022-03-20",
+    "rating": 0,
+    "background_image": "https://media.rawg.io/media/screenshots/95e/95e92eb7495fb43b81be95d3598d5382.jpg",
+    "genres": [
+      "Adventure"
+    ],
+    "platforms": [
+      "PC",
+      "Android",
+      "macOS",
+      "Linux"
+    ],
+    "metacritic": null,
+    "tracked": true,
+    "trackedAt": "2026-01-06T23:19:11.547Z",
+    "events": []
+  },
+  {
+    "id": 23598,
+    "name": "League of Legends",
+    "released": "2009-10-27",
+    "rating": 3.66,
+    "background_image": "https://media.rawg.io/media/games/78b/78bc81e247fc7e77af700cbd632a9297.jpg",
+    "genres": [
+      "Strategy",
+      "Action",
+      "RPG"
+    ],
+    "platforms": [
+      "PC",
+      "macOS"
+    ],
+    "metacritic": 78,
+    "events": [],
+    "tracked": true,
+    "trackedAt": "2026-01-07T02:36:16.908Z"
+  },
+  {
+    "id": 388309,
+    "name": "Diablo IV",
+    "released": "2023-06-06",
+    "rating": 3.76,
+    "background_image": "https://media.rawg.io/media/games/77d/77d51f8f4a07c3eecb0f8504027b1bf0.jpg",
+    "genres": [
+      "Action",
+      "RPG"
+    ],
+    "platforms": [
+      "PC",
+      "PlayStation 5",
+      "Xbox One",
+      "PlayStation 4",
+      "Xbox Series S/X"
+    ],
+    "metacritic": 90,
+    "events": [],
+    "tracked": true,
+    "trackedAt": "2026-01-07T02:36:16.915Z"
+  },
+  {
+    "id": 290856,
+    "name": "Apex Legends",
+    "released": "2019-02-04",
+    "rating": 3.63,
+    "background_image": "https://media.rawg.io/media/games/737/737ea5662211d2e0bbd6f5989189e4f1.jpg",
+    "genres": [
+      "Shooter",
+      "Action"
+    ],
+    "platforms": [
+      "PC",
+      "Xbox One",
+      "PlayStation 4",
+      "Nintendo Switch",
+      "macOS"
+    ],
+    "metacritic": 80,
+    "events": [],
+    "tracked": true,
+    "trackedAt": "2026-01-07T02:36:16.922Z"
+  },
+  {
+    "id": 391403,
+    "name": "Path of Exile 2",
+    "released": "2024-12-06",
+    "rating": 3.34,
+    "background_image": "https://media.rawg.io/media/games/401/4010e56adceb7db58ba42d1189796d5e.jpg",
+    "genres": [
+      "Massively Multiplayer",
+      "Adventure",
+      "Action",
+      "RPG"
+    ],
+    "platforms": [
+      "PC"
+    ],
+    "metacritic": null,
+    "events": [],
+    "tracked": true,
+    "trackedAt": "2026-01-07T02:36:16.926Z"
+  },
+  {
+    "id": 965470,
+    "name": "Counter-Strike 2",
+    "released": "2023-09-27",
+    "rating": 3.57,
+    "background_image": "https://media.rawg.io/media/games/ec4/ec4b02bdb3eb5c6212992c19bc05697e.jpg",
+    "genres": [
+      "Shooter"
+    ],
+    "platforms": [
+      "PC",
+      "Linux"
+    ],
+    "metacritic": null,
+    "events": [],
+    "tracked": true,
+    "trackedAt": "2026-01-07T02:48:38.469Z"
+  },
+  {
+    "id": 32,
+    "name": "Destiny 2",
+    "released": "2017-09-06",
+    "rating": 3.52,
+    "background_image": "https://media.rawg.io/media/games/34b/34b1f1850a1c06fd971bc6ab3ac0ce0e.jpg",
+    "genres": [
+      "Shooter",
+      "Action"
+    ],
+    "platforms": [
+      "PC",
+      "PlayStation 5",
+      "Xbox One",
+      "PlayStation 4",
+      "Xbox Series S/X",
+      "Web"
+    ],
+    "metacritic": 82,
+    "events": [],
+    "tracked": true,
+    "trackedAt": "2026-01-07T02:48:54.770Z"
+  },
+  {
+    "id": 28121,
+    "name": "Slay the Spire",
+    "released": "2019-01-22",
+    "rating": 4.37,
+    "background_image": "https://media.rawg.io/media/games/f52/f5206d55f918edf8ee07803101106fa6.jpg",
+    "genres": [
+      "Card",
+      "Strategy",
+      "Indie",
+      "RPG"
+    ],
+    "platforms": [
+      "PC",
+      "Xbox One",
+      "PlayStation 4",
+      "Nintendo Switch",
+      "iOS",
+      "Android",
+      "macOS",
+      "Linux"
+    ],
+    "metacritic": 86,
+    "events": [],
+    "tracked": true,
+    "trackedAt": "2026-01-07T04:12:06.524Z"
+  }
+]

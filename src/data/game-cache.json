@@ -1,0 +1,1124 @@
+{
+  "326243": {
+    "data": {
+      "id": 326243,
+      "slug": "elden-ring",
+      "name": "Elden Ring",
+      "name_original": "Elden Ring",
+      "description": "<p>The Golden Order has been broken.</p>\n<p>Rise, Tarnished, and be guided by grace to brandish the power of the Elden Ring and become an Elden Lord in the Lands Between.</p>\n<p>In the Lands Between ruled by Queen Marika the Eternal, the Elden Ring, the source of the Erdtree, has been shattered.</p>\n<p>Marika&#39;s offspring, demigods all, claimed the shards of the Elden Ring known as the Great Runes, and the mad taint of their newfound strength triggered a war: The Shattering. A war that meant abandonment by the Greater Will.</p>\n<p>And now the guidance of grace will be brought to the Tarnished who were spurned by the grace of gold and exiled from the Lands Between. Ye dead who yet live, your grace long lost, follow the path to the Lands Between beyond the foggy sea to stand before the Elden Ring.</p>",
+      "metacritic": 95,
+      "metacritic_platforms": [
+        {
+          "metascore": 96,
+          "url": "https://www.metacritic.com/game/xbox-series-x/elden-ring",
+          "platform": {
+            "platform": 186,
+            "name": "Xbox Series S/X",
+            "slug": "xbox-series-x"
+          }
+        },
+        {
+          "metascore": 94,
+          "url": "https://www.metacritic.com/game/pc/elden-ring",
+          "platform": {
+            "platform": 4,
+            "name": "PC",
+            "slug": "pc"
+          }
+        },
+        {
+          "metascore": 96,
+          "url": "https://www.metacritic.com/game/playstation-5/elden-ring",
+          "platform": {
+            "platform": 187,
+            "name": "PlayStation 5",
+            "slug": "playstation5"
+          }
+        }
+      ],
+      "released": "2022-02-25",
+      "tba": false,
+      "updated": "2026-01-03T17:44:26",
+      "background_image": "https://media.rawg.io/media/games/b29/b294fdd866dcdb643e7bab370a552855.jpg",
+      "background_image_additional": "https://media.rawg.io/media/screenshots/ac2/ac2d75c1b2ed0db7f12528a77a15fcea.jpg",
+      "website": "https://en.bandainamcoent.eu/elden-ring/elden-ring",
+      "rating": 4.39,
+      "rating_top": 5,
+      "ratings": [
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 958,
+          "percent": 65.08
+        },
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 291,
+          "percent": 19.77
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 141,
+          "percent": 9.58
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 82,
+          "percent": 5.57
+        }
+      ],
+      "reactions": {
+        "1": 16,
+        "2": 3,
+        "3": 13,
+        "4": 2,
+        "5": 2,
+        "6": 11,
+        "7": 1,
+        "8": 1,
+        "9": 2,
+        "11": 6,
+        "12": 3,
+        "13": 1,
+        "14": 2,
+        "15": 2,
+        "20": 1,
+        "21": 3
+      },
+      "added": 8038,
+      "added_by_status": {
+        "yet": 415,
+        "owned": 4752,
+        "beaten": 1102,
+        "toplay": 1033,
+        "dropped": 408,
+        "playing": 328
+      },
+      "playtime": 62,
+      "screenshots_count": 22,
+      "movies_count": 0,
+      "creators_count": 8,
+      "achievements_count": 30,
+      "parent_achievements_count": 6,
+      "reddit_url": "https://www.reddit.com/r/Eldenring/",
+      "reddit_name": "",
+      "reddit_description": "",
+      "reddit_logo": "",
+      "reddit_count": 7251,
+      "twitch_count": 123,
+      "youtube_count": 1000000,
+      "reviews_text_count": 43,
+      "ratings_count": 1429,
+      "suggestions_count": 586,
+      "alternative_names": [],
+      "metacritic_url": "https://www.metacritic.com/game/playstation-5/elden-ring",
+      "parents_count": 0,
+      "additions_count": 1,
+      "game_series_count": 0,
+      "user_game": null,
+      "reviews_count": 1472,
+      "saturated_color": "0f0f0f",
+      "dominant_color": "0f0f0f",
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 1,
+            "name": "PC",
+            "slug": "pc"
+          }
+        },
+        {
+          "platform": {
+            "id": 2,
+            "name": "PlayStation",
+            "slug": "playstation"
+          }
+        },
+        {
+          "platform": {
+            "id": 3,
+            "name": "Xbox",
+            "slug": "xbox"
+          }
+        }
+      ],
+      "platforms": [
+        {
+          "platform": {
+            "id": 4,
+            "name": "PC",
+            "slug": "pc",
+            "image": null,
+            "year_end": null,
+            "year_start": null,
+            "games_count": 560138,
+            "image_background": "https://media.rawg.io/media/games/8cc/8cce7c0e99dcc43d66c8efd42f9d03e3.jpg"
+          },
+          "released_at": "2022-02-25",
+          "requirements": {
+            "minimum": "Minimum:\nOS: Windows 10\nProcessor: INTEL CORE I5-8400 or AMD RYZEN 3 3300X\nMemory: 12 GB RAM\nGraphics: NVIDIA GEFORCE GTX 1060 3 GB or AMD RADEON RX 580 4 GB\nDirectX: Version 12\nStorage: 60 GB available space\nSound Card: Windows Compatible Audio Device\nAdditional Notes: ",
+            "recommended": "Recommended:\nOS: Windows 10/11\nProcessor: INTEL CORE I7-8700K or AMD RYZEN 5 3600X\nMemory: 16 GB RAM\nGraphics: NVIDIA GEFORCE GTX 1070 8 GB or AMD RADEON RX VEGA 56 8 GB\nDirectX: Version 12\nStorage: 60 GB available space\nSound Card: Windows Compatible Audio Device\nAdditional Notes: "
+          }
+        },
+        {
+          "platform": {
+            "id": 1,
+            "name": "Xbox One",
+            "slug": "xbox-one",
+            "image": null,
+            "year_end": null,
+            "year_start": null,
+            "games_count": 5725,
+            "image_background": "https://media.rawg.io/media/games/490/49016e06ae2103881ff6373248843069.jpg"
+          },
+          "released_at": "2022-02-25",
+          "requirements": {}
+        },
+        {
+          "platform": {
+            "id": 18,
+            "name": "PlayStation 4",
+            "slug": "playstation4",
+            "image": null,
+            "year_end": null,
+            "year_start": null,
+            "games_count": 6968,
+            "image_background": "https://media.rawg.io/media/games/562/562553814dd54e001a541e4ee83a591c.jpg"
+          },
+          "released_at": "2022-02-25",
+          "requirements": {}
+        },
+        {
+          "platform": {
+            "id": 186,
+            "name": "Xbox Series S/X",
+            "slug": "xbox-series-x",
+            "image": null,
+            "year_end": null,
+            "year_start": 2020,
+            "games_count": 1206,
+            "image_background": "https://media.rawg.io/media/games/e1f/e1ffbeb1bac25b19749ad285ca29e158.jpg"
+          },
+          "released_at": "2022-02-25",
+          "requirements": {}
+        },
+        {
+          "platform": {
+            "id": 187,
+            "name": "PlayStation 5",
+            "slug": "playstation5",
+            "image": null,
+            "year_end": null,
+            "year_start": 2020,
+            "games_count": 1399,
+            "image_background": "https://media.rawg.io/media/games/e74/e74458058b35e01c1ae3feeb39a3f724.jpg"
+          },
+          "released_at": "2022-02-25",
+          "requirements": {}
+        }
+      ],
+      "stores": [
+        {
+          "id": 639740,
+          "url": "",
+          "store": {
+            "id": 1,
+            "name": "Steam",
+            "slug": "steam",
+            "domain": "store.steampowered.com",
+            "games_count": 122963,
+            "image_background": "https://media.rawg.io/media/games/4be/4be6a6ad0364751a96229c56bf69be59.jpg"
+          }
+        },
+        {
+          "id": 641387,
+          "url": "",
+          "store": {
+            "id": 3,
+            "name": "PlayStation Store",
+            "slug": "playstation-store",
+            "domain": "store.playstation.com",
+            "games_count": 8066,
+            "image_background": "https://media.rawg.io/media/games/34b/34b1f1850a1c06fd971bc6ab3ac0ce0e.jpg"
+          }
+        },
+        {
+          "id": 641388,
+          "url": "",
+          "store": {
+            "id": 2,
+            "name": "Xbox Store",
+            "slug": "xbox-store",
+            "domain": "microsoft.com",
+            "games_count": 4933,
+            "image_background": "https://media.rawg.io/media/games/960/960b601d9541cec776c5fa42a00bf6c4.jpg"
+          }
+        }
+      ],
+      "developers": [
+        {
+          "id": 6763,
+          "name": "FromSoftware",
+          "slug": "fromsoftware",
+          "games_count": 75,
+          "image_background": "https://media.rawg.io/media/games/b29/b294fdd866dcdb643e7bab370a552855.jpg"
+        }
+      ],
+      "genres": [
+        {
+          "id": 4,
+          "name": "Action",
+          "slug": "action",
+          "games_count": 191346,
+          "image_background": "https://media.rawg.io/media/games/73e/73eecb8909e0c39fb246f457b5d6cbbe.jpg"
+        },
+        {
+          "id": 5,
+          "name": "RPG",
+          "slug": "role-playing-games-rpg",
+          "games_count": 61865,
+          "image_background": "https://media.rawg.io/media/games/00d/00d374f12a3ab5f96c500a2cfa901e15.jpg"
+        }
+      ],
+      "tags": [
+        {
+          "id": 31,
+          "name": "Singleplayer",
+          "slug": "singleplayer",
+          "language": "eng",
+          "games_count": 250611,
+          "image_background": "https://media.rawg.io/media/games/587/587588c64afbff80e6f444eb2e46f9da.jpg"
+        },
+        {
+          "id": 40847,
+          "name": "Steam Achievements",
+          "slug": "steam-achievements",
+          "language": "eng",
+          "games_count": 51624,
+          "image_background": "https://media.rawg.io/media/games/7a2/7a2500ee8b2c0e1ff268bb4479463dea.jpg"
+        },
+        {
+          "id": 7,
+          "name": "Multiplayer",
+          "slug": "multiplayer",
+          "language": "eng",
+          "games_count": 42506,
+          "image_background": "https://media.rawg.io/media/games/157/15742f2f67eacff546738e1ab5c19d20.jpg"
+        },
+        {
+          "id": 40836,
+          "name": "Full controller support",
+          "slug": "full-controller-support",
+          "language": "eng",
+          "games_count": 24103,
+          "image_background": "https://media.rawg.io/media/games/4be/4be6a6ad0364751a96229c56bf69be59.jpg"
+        },
+        {
+          "id": 13,
+          "name": "Atmospheric",
+          "slug": "atmospheric",
+          "language": "eng",
+          "games_count": 39661,
+          "image_background": "https://media.rawg.io/media/games/4a0/4a0a1316102366260e6f38fd2a9cfdce.jpg"
+        },
+        {
+          "id": 42,
+          "name": "Great Soundtrack",
+          "slug": "great-soundtrack",
+          "language": "eng",
+          "games_count": 3451,
+          "image_background": "https://media.rawg.io/media/games/ee3/ee3e10193aafc3230ba1cae426967d10.jpg"
+        },
+        {
+          "id": 24,
+          "name": "RPG",
+          "slug": "rpg",
+          "language": "eng",
+          "games_count": 26568,
+          "image_background": "https://media.rawg.io/media/games/d0f/d0f91fe1d92332147e5db74e207cfc7a.jpg"
+        },
+        {
+          "id": 18,
+          "name": "Co-op",
+          "slug": "co-op",
+          "language": "eng",
+          "games_count": 14363,
+          "image_background": "https://media.rawg.io/media/games/b49/b4912b5dbfc7ed8927b65f05b8507f6c.jpg"
+        },
+        {
+          "id": 36,
+          "name": "Open World",
+          "slug": "open-world",
+          "language": "eng",
+          "games_count": 9242,
+          "image_background": "https://media.rawg.io/media/games/995/9951d9d55323d08967640f7b9ab3e342.jpg"
+        },
+        {
+          "id": 411,
+          "name": "cooperative",
+          "slug": "cooperative",
+          "language": "eng",
+          "games_count": 6572,
+          "image_background": "https://media.rawg.io/media/games/da1/da1b267764d77221f07a4386b6548e5a.jpg"
+        },
+        {
+          "id": 149,
+          "name": "Third Person",
+          "slug": "third-person",
+          "language": "eng",
+          "games_count": 14693,
+          "image_background": "https://media.rawg.io/media/games/4a0/4a0a1316102366260e6f38fd2a9cfdce.jpg"
+        },
+        {
+          "id": 9,
+          "name": "Online Co-Op",
+          "slug": "online-co-op",
+          "language": "eng",
+          "games_count": 7658,
+          "image_background": "https://media.rawg.io/media/games/4e0/4e0e7b6d6906a131307c94266e5c9a1c.jpg"
+        },
+        {
+          "id": 64,
+          "name": "Fantasy",
+          "slug": "fantasy",
+          "language": "eng",
+          "games_count": 32915,
+          "image_background": "https://media.rawg.io/media/games/b6b/b6b20bfc4b34e312dbc8aac53c95a348.jpg"
+        },
+        {
+          "id": 49,
+          "name": "Difficult",
+          "slug": "difficult",
+          "language": "eng",
+          "games_count": 14295,
+          "image_background": "https://media.rawg.io/media/games/f90/f90ee1a4239247a822771c40488e68c5.jpg"
+        },
+        {
+          "id": 34,
+          "name": "Violent",
+          "slug": "violent",
+          "language": "eng",
+          "games_count": 7844,
+          "image_background": "https://media.rawg.io/media/games/4be/4be6a6ad0364751a96229c56bf69be59.jpg"
+        },
+        {
+          "id": 97,
+          "name": "Action RPG",
+          "slug": "action-rpg",
+          "language": "eng",
+          "games_count": 8679,
+          "image_background": "https://media.rawg.io/media/games/67f/67f62d1f062a6164f57575e0604ee9f6.jpg"
+        },
+        {
+          "id": 157,
+          "name": "PvP",
+          "slug": "pvp",
+          "language": "eng",
+          "games_count": 12018,
+          "image_background": "https://media.rawg.io/media/games/ac7/ac7b8327343da12c971cfc418f390a11.jpg"
+        },
+        {
+          "id": 571,
+          "name": "3D",
+          "slug": "3d",
+          "language": "eng",
+          "games_count": 93724,
+          "image_background": "https://media.rawg.io/media/games/cb4/cb487ab3c54b81cb685388bab42ec848.jpeg"
+        },
+        {
+          "id": 40,
+          "name": "Dark Fantasy",
+          "slug": "dark-fantasy",
+          "language": "eng",
+          "games_count": 5663,
+          "image_background": "https://media.rawg.io/media/games/886/8868f9ea0c91d45316319ebf5dd4fc64.jpg"
+        },
+        {
+          "id": 45878,
+          "name": "Online PvP",
+          "slug": "online-pvp",
+          "language": "eng",
+          "games_count": 6389,
+          "image_background": "https://media.rawg.io/media/games/082/082365507ff04d456c700157072d35db.jpg"
+        },
+        {
+          "id": 40937,
+          "name": "Steam Trading Cards",
+          "slug": "steam-trading-cards-2",
+          "language": "eng",
+          "games_count": 844,
+          "image_background": "https://media.rawg.io/media/games/b2c/b2c9c6115114c8f7d461b5430e8a7d4a.jpg"
+        },
+        {
+          "id": 581,
+          "name": "Epic",
+          "slug": "epic",
+          "language": "eng",
+          "games_count": 4135,
+          "image_background": "https://media.rawg.io/media/games/b42/b42b05096de6668833bbab38f6099c6a.jpg"
+        },
+        {
+          "id": 580,
+          "name": "Souls-like",
+          "slug": "souls-like",
+          "language": "eng",
+          "games_count": 1866,
+          "image_background": "https://media.rawg.io/media/games/458/45838becd01e929b6be8b88d655cebfc.jpg"
+        },
+        {
+          "id": 1221,
+          "name": "history",
+          "slug": "history",
+          "language": "eng",
+          "games_count": 2390,
+          "image_background": "https://media.rawg.io/media/games/cdd/cdd4b6cf03ac7ebf7460b0d82f9aaa09.jpg"
+        }
+      ],
+      "publishers": [
+        {
+          "id": 8352,
+          "name": "Bandai Namco Entertainment",
+          "slug": "bandai-namco-entertainment",
+          "games_count": 616,
+          "image_background": "https://media.rawg.io/media/games/582/582b5518a52f5086d15dde128264b94d.jpg"
+        },
+        {
+          "id": 11230,
+          "name": "FromSoftware",
+          "slug": "fromsoftware",
+          "games_count": 26,
+          "image_background": "https://media.rawg.io/media/screenshots/e33/e338020371e449560a23280dc25d6a7b.jpg"
+        }
+      ],
+      "esrb_rating": {
+        "id": 4,
+        "name": "Mature",
+        "slug": "mature"
+      },
+      "clip": null,
+      "description_raw": "The Golden Order has been broken.\n\nRise, Tarnished, and be guided by grace to brandish the power of the Elden Ring and become an Elden Lord in the Lands Between.\n\nIn the Lands Between ruled by Queen Marika the Eternal, the Elden Ring, the source of the Erdtree, has been shattered.\n\nMarika's offspring, demigods all, claimed the shards of the Elden Ring known as the Great Runes, and the mad taint of their newfound strength triggered a war: The Shattering. A war that meant abandonment by the Greater Will.\n\nAnd now the guidance of grace will be brought to the Tarnished who were spurned by the grace of gold and exiled from the Lands Between. Ye dead who yet live, your grace long lost, follow the path to the Lands Between beyond the foggy sea to stand before the Elden Ring."
+    },
+    "cachedAt": 1767654437724
+  },
+  "388309": {
+    "data": {
+      "id": 388309,
+      "slug": "diablo-iv",
+      "name": "Diablo IV",
+      "name_original": "Diablo IV",
+      "description": "<p>Meet Your Maker</p>\n<p>Lilith has returned to Sanctuary, summoned by a dark ritual after eons in exile. Her return ushers in an age of darkness and misery.</p>\n<p>Sanctuary, a land once ravaged by war between the High Heavens and Burning Hells, has fallen once more into darkness. Lilith, daughter of Mephisto, Lord of Hatred, has been summoned by dark ritual after eons in exile. Now, hatred threatens to consume Sanctuary as evil spreads and a new wave of cultists and worshippers arise to embrace Lilith’s coming. Only a brave few dare to face this threat…</p>\n<p>Forge your path through the corrupt lands of Sanctuary – a continuous, ever-growing, and fully explorable world, teeming with choices, quests, corruption, and loot. Join fellow adventurers, retake besieged towns, delve into nightmarish dungeons, and uncover lost secrets as you fight for the fate of the world. Every inch of Diablo IV is built for adventure, with multiple zones to explore freely, each ripe with non-linear quests, epic bosses, discoverable towns, and multitudes of demons to slay.</p>\n<p>Create and customize your character to become steadfast in the face of darkness. Choose from one of five classes and forge your hero from an abundance of different cosmetics, talents, and abilities, creating a character that is uniquely your own. Grow stronger as your character progresses through powerful Skill Trees, developing even more unique end game specializations with Paragon Boards to dramatically impact your gameplay.</p>\n<p>Defeating great evil requires great gear. Discover and experiment with a vast arsenal of powerful weapons, armor, and more to fight back against the demons threatening these lands. Embrace the many powers of your collection by exploring unique combinations to battle in immersive, action-packed combat against the deadliest of enemies with devastating results.</p>",
+      "metacritic": 90,
+      "metacritic_platforms": [
+        {
+          "metascore": 92,
+          "url": "https://www.metacritic.com/game/xbox-series-x/diablo-iv",
+          "platform": {
+            "platform": 186,
+            "name": "Xbox Series S/X",
+            "slug": "xbox-series-x"
+          }
+        },
+        {
+          "metascore": 89,
+          "url": "https://www.metacritic.com/game/playstation-5/diablo-iv",
+          "platform": {
+            "platform": 187,
+            "name": "PlayStation 5",
+            "slug": "playstation5"
+          }
+        },
+        {
+          "metascore": 88,
+          "url": "https://www.metacritic.com/game/pc/diablo-iv",
+          "platform": {
+            "platform": 4,
+            "name": "PC",
+            "slug": "pc"
+          }
+        }
+      ],
+      "released": "2023-06-06",
+      "tba": false,
+      "updated": "2026-01-02T12:43:30",
+      "background_image": "https://media.rawg.io/media/games/77d/77d51f8f4a07c3eecb0f8504027b1bf0.jpg",
+      "background_image_additional": "https://media.rawg.io/media/screenshots/54e/54e31bba4d1db2a69b882bd143881655.jpg",
+      "website": "https://diablo.blizzard.com",
+      "rating": 3.76,
+      "rating_top": 4,
+      "ratings": [
+        {
+          "id": 4,
+          "title": "recommended",
+          "count": 153,
+          "percent": 48.88
+        },
+        {
+          "id": 5,
+          "title": "exceptional",
+          "count": 69,
+          "percent": 22.04
+        },
+        {
+          "id": 3,
+          "title": "meh",
+          "count": 64,
+          "percent": 20.45
+        },
+        {
+          "id": 1,
+          "title": "skip",
+          "count": 27,
+          "percent": 8.63
+        }
+      ],
+      "reactions": {
+        "11": 1,
+        "12": 1,
+        "14": 3
+      },
+      "added": 1451,
+      "added_by_status": {
+        "yet": 144,
+        "owned": 371,
+        "beaten": 233,
+        "toplay": 494,
+        "dropped": 114,
+        "playing": 95
+      },
+      "playtime": 17,
+      "screenshots_count": 10,
+      "movies_count": 0,
+      "creators_count": 0,
+      "achievements_count": 86,
+      "parent_achievements_count": 36,
+      "reddit_url": "",
+      "reddit_name": "",
+      "reddit_description": "",
+      "reddit_logo": "",
+      "reddit_count": 0,
+      "twitch_count": 91,
+      "youtube_count": 0,
+      "reviews_text_count": 11,
+      "ratings_count": 302,
+      "suggestions_count": 554,
+      "alternative_names": [
+        "Diablo 4"
+      ],
+      "metacritic_url": "https://www.metacritic.com/game/pc/diablo-iv",
+      "parents_count": 0,
+      "additions_count": 1,
+      "game_series_count": 4,
+      "user_game": null,
+      "reviews_count": 313,
+      "saturated_color": "0f0f0f",
+      "dominant_color": "0f0f0f",
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 1,
+            "name": "PC",
+            "slug": "pc"
+          }
+        },
+        {
+          "platform": {
+            "id": 2,
+            "name": "PlayStation",
+            "slug": "playstation"
+          }
+        },
+        {
+          "platform": {
+            "id": 3,
+            "name": "Xbox",
+            "slug": "xbox"
+          }
+        }
+      ],
+      "platforms": [
+        {
+          "platform": {
+            "id": 4,
+            "name": "PC",
+            "slug": "pc",
+            "image": null,
+            "year_end": null,
+            "year_start": null,
+            "games_count": 560138,
+            "image_background": "https://media.rawg.io/media/games/8cc/8cce7c0e99dcc43d66c8efd42f9d03e3.jpg"
+          },
+          "released_at": "2023-10-17",
+          "requirements": {
+            "minimum": "Minimum:\nRequires a 64-bit processor and operating system\nOS: 64-bit Windows® 10 version 1909 or newer\nProcessor: Intel® Core™ i5-2500K or AMD™ FX-8350\nGraphics: NVIDIA® GeForce® GTX 660 or Intel® Arc™ A380 or AMD Radeon™ R9 280\nDirectX: Version 12\nNetwork: Broadband Internet connection\nStorage: 90 GB available space\nAdditional Notes: *1080p native resolution / 720p render resolution, low graphics settings, 30fps, SSD Required",
+            "recommended": "Recommended:\nRequires a 64-bit processor and operating system\nOS: 64-bit Windows® 10 version 1909 or newer\nProcessor: Intel® Core™ i5-4670K or AMD Ryzen™ 1300X\nGraphics: NVIDIA® GeForce® GTX 970 or Intel® Arc™ A750 or AMD Radeon™ RX 470\nDirectX: Version 12\nNetwork: Broadband Internet connection\nStorage: 90 GB available space\nAdditional Notes: *1080p resolution, medium graphics settings, 60fps, SSD Required"
+          }
+        },
+        {
+          "platform": {
+            "id": 186,
+            "name": "Xbox Series S/X",
+            "slug": "xbox-series-x",
+            "image": null,
+            "year_end": null,
+            "year_start": 2020,
+            "games_count": 1206,
+            "image_background": "https://media.rawg.io/media/games/e1f/e1ffbeb1bac25b19749ad285ca29e158.jpg"
+          },
+          "released_at": "2023-06-06",
+          "requirements": {}
+        },
+        {
+          "platform": {
+            "id": 187,
+            "name": "PlayStation 5",
+            "slug": "playstation5",
+            "image": null,
+            "year_end": null,
+            "year_start": 2020,
+            "games_count": 1399,
+            "image_background": "https://media.rawg.io/media/games/e74/e74458058b35e01c1ae3feeb39a3f724.jpg"
+          },
+          "released_at": "2023-06-06",
+          "requirements": {}
+        },
+        {
+          "platform": {
+            "id": 1,
+            "name": "Xbox One",
+            "slug": "xbox-one",
+            "image": null,
+            "year_end": null,
+            "year_start": null,
+            "games_count": 5725,
+            "image_background": "https://media.rawg.io/media/games/490/49016e06ae2103881ff6373248843069.jpg"
+          },
+          "released_at": "2023-06-06",
+          "requirements": {}
+        },
+        {
+          "platform": {
+            "id": 18,
+            "name": "PlayStation 4",
+            "slug": "playstation4",
+            "image": null,
+            "year_end": null,
+            "year_start": null,
+            "games_count": 6968,
+            "image_background": "https://media.rawg.io/media/games/562/562553814dd54e001a541e4ee83a591c.jpg"
+          },
+          "released_at": "2023-06-06",
+          "requirements": {}
+        }
+      ],
+      "stores": [
+        {
+          "id": 967447,
+          "url": "",
+          "store": {
+            "id": 1,
+            "name": "Steam",
+            "slug": "steam",
+            "domain": "store.steampowered.com",
+            "games_count": 122963,
+            "image_background": "https://media.rawg.io/media/games/4be/4be6a6ad0364751a96229c56bf69be59.jpg"
+          }
+        },
+        {
+          "id": 896425,
+          "url": "",
+          "store": {
+            "id": 3,
+            "name": "PlayStation Store",
+            "slug": "playstation-store",
+            "domain": "store.playstation.com",
+            "games_count": 8066,
+            "image_background": "https://media.rawg.io/media/games/34b/34b1f1850a1c06fd971bc6ab3ac0ce0e.jpg"
+          }
+        }
+      ],
+      "developers": [
+        {
+          "id": 131691,
+          "name": "Activision Blizzard",
+          "slug": "activision-blizzard",
+          "games_count": 3,
+          "image_background": "https://media.rawg.io/media/games/77d/77d51f8f4a07c3eecb0f8504027b1bf0.jpg"
+        }
+      ],
+      "genres": [
+        {
+          "id": 4,
+          "name": "Action",
+          "slug": "action",
+          "games_count": 191346,
+          "image_background": "https://media.rawg.io/media/games/73e/73eecb8909e0c39fb246f457b5d6cbbe.jpg"
+        },
+        {
+          "id": 5,
+          "name": "RPG",
+          "slug": "role-playing-games-rpg",
+          "games_count": 61865,
+          "image_background": "https://media.rawg.io/media/games/00d/00d374f12a3ab5f96c500a2cfa901e15.jpg"
+        }
+      ],
+      "tags": [
+        {
+          "id": 31,
+          "name": "Singleplayer",
+          "slug": "singleplayer",
+          "language": "eng",
+          "games_count": 250611,
+          "image_background": "https://media.rawg.io/media/games/587/587588c64afbff80e6f444eb2e46f9da.jpg"
+        },
+        {
+          "id": 40847,
+          "name": "Steam Achievements",
+          "slug": "steam-achievements",
+          "language": "eng",
+          "games_count": 51624,
+          "image_background": "https://media.rawg.io/media/games/7a2/7a2500ee8b2c0e1ff268bb4479463dea.jpg"
+        },
+        {
+          "id": 7,
+          "name": "Multiplayer",
+          "slug": "multiplayer",
+          "language": "eng",
+          "games_count": 42506,
+          "image_background": "https://media.rawg.io/media/games/157/15742f2f67eacff546738e1ab5c19d20.jpg"
+        },
+        {
+          "id": 40836,
+          "name": "Full controller support",
+          "slug": "full-controller-support",
+          "language": "eng",
+          "games_count": 24103,
+          "image_background": "https://media.rawg.io/media/games/4be/4be6a6ad0364751a96229c56bf69be59.jpg"
+        },
+        {
+          "id": 24,
+          "name": "RPG",
+          "slug": "rpg",
+          "language": "eng",
+          "games_count": 26568,
+          "image_background": "https://media.rawg.io/media/games/d0f/d0f91fe1d92332147e5db74e207cfc7a.jpg"
+        },
+        {
+          "id": 18,
+          "name": "Co-op",
+          "slug": "co-op",
+          "language": "eng",
+          "games_count": 14363,
+          "image_background": "https://media.rawg.io/media/games/b49/b4912b5dbfc7ed8927b65f05b8507f6c.jpg"
+        },
+        {
+          "id": 118,
+          "name": "Story Rich",
+          "slug": "story-rich",
+          "language": "eng",
+          "games_count": 27227,
+          "image_background": "https://media.rawg.io/media/games/26d/26d4437715bee60138dab4a7c8c59c92.jpg"
+        },
+        {
+          "id": 411,
+          "name": "cooperative",
+          "slug": "cooperative",
+          "language": "eng",
+          "games_count": 6572,
+          "image_background": "https://media.rawg.io/media/games/da1/da1b267764d77221f07a4386b6548e5a.jpg"
+        },
+        {
+          "id": 149,
+          "name": "Third Person",
+          "slug": "third-person",
+          "language": "eng",
+          "games_count": 14693,
+          "image_background": "https://media.rawg.io/media/games/4a0/4a0a1316102366260e6f38fd2a9cfdce.jpg"
+        },
+        {
+          "id": 9,
+          "name": "Online Co-Op",
+          "slug": "online-co-op",
+          "language": "eng",
+          "games_count": 7658,
+          "image_background": "https://media.rawg.io/media/games/4e0/4e0e7b6d6906a131307c94266e5c9a1c.jpg"
+        },
+        {
+          "id": 64,
+          "name": "Fantasy",
+          "slug": "fantasy",
+          "language": "eng",
+          "games_count": 32915,
+          "image_background": "https://media.rawg.io/media/games/b6b/b6b20bfc4b34e312dbc8aac53c95a348.jpg"
+        },
+        {
+          "id": 26,
+          "name": "Gore",
+          "slug": "gore",
+          "language": "eng",
+          "games_count": 6658,
+          "image_background": "https://media.rawg.io/media/games/8d4/8d46786ca86b1d95f3dc7e700e2dc4dd.jpg"
+        },
+        {
+          "id": 6,
+          "name": "Exploration",
+          "slug": "exploration",
+          "language": "eng",
+          "games_count": 29198,
+          "image_background": "https://media.rawg.io/media/games/951/951572a3dd1e42544bd39a5d5b42d234.jpg"
+        },
+        {
+          "id": 34,
+          "name": "Violent",
+          "slug": "violent",
+          "language": "eng",
+          "games_count": 7844,
+          "image_background": "https://media.rawg.io/media/games/4be/4be6a6ad0364751a96229c56bf69be59.jpg"
+        },
+        {
+          "id": 97,
+          "name": "Action RPG",
+          "slug": "action-rpg",
+          "language": "eng",
+          "games_count": 8679,
+          "image_background": "https://media.rawg.io/media/games/67f/67f62d1f062a6164f57575e0604ee9f6.jpg"
+        },
+        {
+          "id": 157,
+          "name": "PvP",
+          "slug": "pvp",
+          "language": "eng",
+          "games_count": 12018,
+          "image_background": "https://media.rawg.io/media/games/ac7/ac7b8327343da12c971cfc418f390a11.jpg"
+        },
+        {
+          "id": 40832,
+          "name": "Cross-Platform Multiplayer",
+          "slug": "cross-platform-multiplayer",
+          "language": "eng",
+          "games_count": 3157,
+          "image_background": "https://media.rawg.io/media/games/5eb/5eb49eb2fa0738fdb5bacea557b1bc57.jpg"
+        },
+        {
+          "id": 141,
+          "name": "Point & Click",
+          "slug": "point-click",
+          "language": "eng",
+          "games_count": 15504,
+          "image_background": "https://media.rawg.io/media/games/c81/c812e158129e00c9b0f096ae8a0bb7d6.jpg"
+        },
+        {
+          "id": 68,
+          "name": "Hack and Slash",
+          "slug": "hack-and-slash",
+          "language": "eng",
+          "games_count": 5338,
+          "image_background": "https://media.rawg.io/media/games/d1f/d1f872a48286b6b751670817d5c1e1be.jpg"
+        },
+        {
+          "id": 40837,
+          "name": "In-App Purchases",
+          "slug": "in-app-purchases",
+          "language": "eng",
+          "games_count": 3408,
+          "image_background": "https://media.rawg.io/media/games/98c/98cd77a9f61b31a6ddab1670b079c841.jpg"
+        },
+        {
+          "id": 40,
+          "name": "Dark Fantasy",
+          "slug": "dark-fantasy",
+          "language": "eng",
+          "games_count": 5663,
+          "image_background": "https://media.rawg.io/media/games/886/8868f9ea0c91d45316319ebf5dd4fc64.jpg"
+        },
+        {
+          "id": 99,
+          "name": "Isometric",
+          "slug": "isometric",
+          "language": "eng",
+          "games_count": 5306,
+          "image_background": "https://media.rawg.io/media/games/87a/87a29bcc56b6b6082ead1dd5e2510aaa.jpg"
+        },
+        {
+          "id": 45878,
+          "name": "Online PvP",
+          "slug": "online-pvp",
+          "language": "eng",
+          "games_count": 6389,
+          "image_background": "https://media.rawg.io/media/games/082/082365507ff04d456c700157072d35db.jpg"
+        },
+        {
+          "id": 48,
+          "name": "Dungeon Crawler",
+          "slug": "dungeon-crawler",
+          "language": "eng",
+          "games_count": 7981,
+          "image_background": "https://media.rawg.io/media/games/d0f/d0f91fe1d92332147e5db74e207cfc7a.jpg"
+        },
+        {
+          "id": 171,
+          "name": "PvE",
+          "slug": "pve",
+          "language": "eng",
+          "games_count": 7958,
+          "image_background": "https://media.rawg.io/media/games/4be/4be6a6ad0364751a96229c56bf69be59.jpg"
+        }
+      ],
+      "publishers": [
+        {
+          "id": 10830,
+          "name": "Activision Blizzard",
+          "slug": "activision-blizzard",
+          "games_count": 693,
+          "image_background": "https://media.rawg.io/media/games/4ea/4ea507ceebeabb43edbc09468f5aaac6.jpg"
+        },
+        {
+          "id": 11237,
+          "name": "Blizzard Entertainment",
+          "slug": "blizzard-entertainment",
+          "games_count": 52,
+          "image_background": "https://media.rawg.io/media/games/923/923a5dd13b6e79dd23ab2d09934f0e8d.jpg"
+        }
+      ],
+      "esrb_rating": null,
+      "clip": null,
+      "description_raw": "Meet Your Maker\n\nLilith has returned to Sanctuary, summoned by a dark ritual after eons in exile. Her return ushers in an age of darkness and misery.\n\nSanctuary, a land once ravaged by war between the High Heavens and Burning Hells, has fallen once more into darkness. Lilith, daughter of Mephisto, Lord of Hatred, has been summoned by dark ritual after eons in exile. Now, hatred threatens to consume Sanctuary as evil spreads and a new wave of cultists and worshippers arise to embrace Lilith’s coming. Only a brave few dare to face this threat…\n\nForge your path through the corrupt lands of Sanctuary – a continuous, ever-growing, and fully explorable world, teeming with choices, quests, corruption, and loot. Join fellow adventurers, retake besieged towns, delve into nightmarish dungeons, and uncover lost secrets as you fight for the fate of the world. Every inch of Diablo IV is built for adventure, with multiple zones to explore freely, each ripe with non-linear quests, epic bosses, discoverable towns, and multitudes of demons to slay.\n\nCreate and customize your character to become steadfast in the face of darkness. Choose from one of five classes and forge your hero from an abundance of different cosmetics, talents, and abilities, creating a character that is uniquely your own. Grow stronger as your character progresses through powerful Skill Trees, developing even more unique end game specializations with Paragon Boards to dramatically impact your gameplay.\n\nDefeating great evil requires great gear. Discover and experiment with a vast arsenal of powerful weapons, armor, and more to fight back against the demons threatening these lands. Embrace the many powers of your collection by exploring unique combinations to battle in immersive, action-packed combat against the deadliest of enemies with devastating results."
+    },
+    "cachedAt": 1767606519744
+  },
+  "search": {
+    "data": {
+      "id": 253744,
+      "slug": "search",
+      "name": ". search",
+      "name_original": ". search",
+      "description": "dot search game!<br/><br/>width:320 height:480<br/>The specified coordinates, please guess.<br/>Only minutes left coordinates, the scores decrease.",
+      "metacritic": null,
+      "metacritic_platforms": [],
+      "released": "2011-04-02",
+      "tba": false,
+      "updated": "2019-10-22T14:09:36",
+      "background_image": "https://media.rawg.io/media/screenshots/489/48910470720a4cb11740a46112ea6e07.jpg",
+      "background_image_additional": "https://media.rawg.io/media/screenshots/670/67046d02e83e5cfe6fc4273d4c4090e1.jpg",
+      "website": "http://ruckygames.com/",
+      "rating": 0,
+      "rating_top": 0,
+      "ratings": [],
+      "reactions": null,
+      "added": 0,
+      "added_by_status": null,
+      "playtime": 0,
+      "screenshots_count": 3,
+      "movies_count": 0,
+      "creators_count": 0,
+      "achievements_count": 0,
+      "parent_achievements_count": 0,
+      "reddit_url": "",
+      "reddit_name": "",
+      "reddit_description": "",
+      "reddit_logo": "",
+      "reddit_count": 0,
+      "twitch_count": 0,
+      "youtube_count": 0,
+      "reviews_text_count": 0,
+      "ratings_count": 0,
+      "suggestions_count": 32,
+      "alternative_names": [],
+      "metacritic_url": "",
+      "parents_count": 0,
+      "additions_count": 0,
+      "game_series_count": 0,
+      "user_game": null,
+      "reviews_count": 0,
+      "community_rating": 0,
+      "saturated_color": "0f0f0f",
+      "dominant_color": "0f0f0f",
+      "parent_platforms": [
+        {
+          "platform": {
+            "id": 4,
+            "name": "iOS",
+            "slug": "ios"
+          }
+        }
+      ],
+      "platforms": [
+        {
+          "platform": {
+            "id": 3,
+            "name": "iOS",
+            "slug": "ios",
+            "image": null,
+            "year_end": null,
+            "year_start": null,
+            "games_count": 77428,
+            "image_background": "https://media.rawg.io/media/games/daa/daaee07fcb40744d90cf8142f94a241f.jpg"
+          },
+          "released_at": "2011-04-02",
+          "requirements": {
+            "minimum": "iPhone First Gen, iPod Touch First Gen, iPod Touch Second Gen, iPhone 3G, iPhone 3G S, iPad Wifi, iPad 3G, iPod Touch Third Gen, iPhone 4, iPod Touch Fourth Gen, iPad 2 Wifi, iPad 2 3G, iPhone 4S, iPad Third Gen, iPad Third Gen 4G, iPhone 5, iPod Touch Fifth Gen, iPad Fourth Gen, iPad Fourth Gen 4G, iPad Mini, iPad Mini 4G, iPhone 5c, iPhone 5s, iPad Air, iPad Air Cellular, iPad Mini Retina, iPad Mini Retina Cellular, iPhone 6, iPhone 6 Plus, iPad Air 2, iPad Air 2 Cellular, iPad Mini 3, iPad Mini 3 Cellular, iPod Touch Sixth Gen, iPhone 6s, iPhone 6s Plus, iPad Mini 4, iPad Mini 4 Cellular, iPad Pro, iPad Pro Cellular, iPad Pro 9.7, iPad Pro 9.7 Cellular, iPhone SE, iPhone 7, iPhone 7 Plus, iPad 6 1 1, iPad 6 1 2, iPad 7 1, iPad 7 2, iPad 7 3, iPad 7 4, iPhone 8, iPhone 8 Plus, iPhone X, iPad 7 5, iPad 7 6, iPhone X S, iPhone X S Max, iPhone X R"
+          }
+        }
+      ],
+      "stores": [
+        {
+          "id": 251572,
+          "url": "",
+          "store": {
+            "id": 4,
+            "name": "App Store",
+            "slug": "apple-appstore",
+            "domain": "apps.apple.com",
+            "games_count": 75589,
+            "image_background": "https://media.rawg.io/media/games/157/15742f2f67eacff546738e1ab5c19d20.jpg"
+          }
+        }
+      ],
+      "developers": [
+        {
+          "id": 103536,
+          "name": "RUCKYGAMES CO",
+          "slug": "ruckygames-co-ltd",
+          "games_count": 39,
+          "image_background": "https://media.rawg.io/media/screenshots/a87/a87010a8757532912a2cf500e64766f3_yocaH6M.jpg"
+        }
+      ],
+      "genres": [
+        {
+          "id": 4,
+          "name": "Action",
+          "slug": "action",
+          "games_count": 191346,
+          "image_background": "https://media.rawg.io/media/games/73e/73eecb8909e0c39fb246f457b5d6cbbe.jpg"
+        },
+        {
+          "id": 28,
+          "name": "Board Games",
+          "slug": "board-games",
+          "games_count": 8392,
+          "image_background": "https://media.rawg.io/media/games/11b/11b81edff7f45024e36b88e880d86585.jpg"
+        }
+      ],
+      "tags": [],
+      "publishers": [
+        {
+          "id": 28617,
+          "name": "RUCKYGAMES CO",
+          "slug": "ruckygames-co-ltd",
+          "games_count": 39,
+          "image_background": "https://media.rawg.io/media/screenshots/cc6/cc6a711fd8f282329ad462ae25c67e83.jpg"
+        }
+      ],
+      "esrb_rating": {
+        "id": 2,
+        "name": "Everyone 10+",
+        "slug": "everyone-10-plus"
+      },
+      "clip": null,
+      "description_raw": "dot search game!\nwidth:320 height:480\nThe specified coordinates, please guess.\nOnly minutes left coordinates, the scores decrease."
+    },
+    "cachedAt": 1767744953255
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "event_types_enabled": {
+    "patch": true,
+    "dlc": true,
+    "expansion": true,
+    "season": true,
+    "movie": true,
+    "show": true,
+    "tournament": true,
+    "irl_event": false,
+    "in_game_event": true
+  }
+}

@@ -1,0 +1,45 @@
+[
+  {
+    "id": 388309,
+    "name": "Diablo IV",
+    "released": "2023-06-06",
+    "rating": 3.76,
+    "background_image": "https://media.rawg.io/media/games/77d/77d51f8f4a07c3eecb0f8504027b1bf0.jpg",
+    "genres": [
+      "Action",
+      "RPG"
+    ],
+    "platforms": [
+      "PC",
+      "PlayStation 5",
+      "Xbox One",
+      "PlayStation 4",
+      "Xbox Series S/X"
+    ],
+    "metacritic": 90,
+    "trackedAt": "2026-01-05T09:48:32.542Z",
+    "daysUntilRelease": -944
+  },
+  {
+    "id": 326243,
+    "name": "Elden Ring",
+    "released": "2022-02-25",
+    "rating": 4.39,
+    "background_image": "https://media.rawg.io/media/games/b29/b294fdd866dcdb643e7bab370a552855.jpg",
+    "genres": [
+      "Action",
+      "RPG"
+    ],
+    "platforms": [
+      "PC",
+      "PlayStation 5",
+      "Xbox One",
+      "PlayStation 4",
+      "Xbox Series S/X"
+    ],
+    "metacritic": 95,
+    "esrb_rating": "Mature",
+    "trackedAt": "2026-01-05T23:07:10.784Z",
+    "daysUntilRelease": -1410
+  }
+]

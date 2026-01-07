@@ -1,0 +1,42 @@
+{
+  "elden ring": {
+    "appId": 1245620,
+    "name": "ELDEN RING",
+    "foundAt": "2026-01-07T01:57:20.901Z"
+  },
+  "counter-strike 2": {
+    "appId": 730,
+    "name": "Counter-Strike 2",
+    "foundAt": "2026-01-07T02:48:39.160Z"
+  },
+  "destiny 2": {
+    "appId": 1085660,
+    "name": "Destiny 2",
+    "foundAt": "2026-01-07T02:48:55.729Z"
+  },
+  "diablo iv": {
+    "appId": 2344520,
+    "name": "Diablo® IV",
+    "foundAt": "2026-01-07T03:35:16.880Z"
+  },
+  "path of exile 2": {
+    "appId": 2694490,
+    "name": "Path of Exile 2",
+    "foundAt": "2026-01-07T03:47:42.168Z"
+  },
+  "elden ring nightreign": {
+    "appId": 2622380,
+    "name": "ELDEN RING NIGHTREIGN",
+    "foundAt": "2026-01-07T03:56:01.091Z"
+  },
+  "league of legends": {
+    "appId": 1276790,
+    "name": "Ruined King: A League of Legends Story™",
+    "foundAt": "2026-01-07T04:01:12.681Z"
+  },
+  "slay the spire": {
+    "appId": 2868840,
+    "name": "Slay the Spire 2",
+    "foundAt": "2026-01-07T04:12:07.257Z"
+  }
+}
