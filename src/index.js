@@ -450,15 +450,118 @@ async function discoverEventsForGame(gameId, gameName) {
   return events;
 }
 
+// ============ SMART SEARCH HELPER ============
+
+function smartSortGames(games, searchQuery) {
+  const query = searchQuery.toLowerCase().trim();
+  const queryWords = query.split(/\s+/);
+  
+  // Filter out junk (DLCs, soundtracks, editions unless specifically searched)
+  const junkPatterns = [
+    /soundtrack/i,
+    /ost\b/i,
+    /\bmusic\b/i,
+    /artbook/i,
+    /art book/i,
+    /wallpaper/i,
+    /demo$/i,
+    /\bbeta\b/i,
+    /test server/i,
+    /pts\b/i,
+  ];
+  
+  // Only filter DLC/edition if not searching for them
+  if (!query.includes('dlc') && !query.includes('edition') && !query.includes('pack')) {
+    junkPatterns.push(/\bdlc\b/i);
+    junkPatterns.push(/season pass/i);
+    junkPatterns.push(/expansion pass/i);
+  }
+  
+  const filteredGames = games.filter(game => {
+    const name = game.name.toLowerCase();
+    return !junkPatterns.some(pattern => pattern.test(name));
+  });
+  
+  // Score each game
+  const scoredGames = filteredGames.map(game => {
+    const name = game.name.toLowerCase();
+    let score = 0;
+    
+    // Exact match (huge boost)
+    if (name === query) {
+      score += 10000;
+    }
+    
+    // Starts with query (big boost)
+    if (name.startsWith(query)) {
+      score += 5000;
+    }
+    
+    // Contains all query words
+    const containsAllWords = queryWords.every(word => name.includes(word));
+    if (containsAllWords) {
+      score += 2000;
+    }
+    
+    // Shorter names are usually the main game, not "Game: Subtitle: DLC: Edition"
+    const nameLengthPenalty = Math.min(name.length * 2, 200);
+    score -= nameLengthPenalty;
+    
+    // Recency boost - newer games ranked higher
+    if (game.released) {
+      const year = parseInt(game.released.split('-')[0]);
+      if (year >= 2023) score += 1500;
+      else if (year >= 2020) score += 1000;
+      else if (year >= 2015) score += 500;
+      else if (year >= 2010) score += 200;
+    }
+    
+    // Rating boost (0-5 scale from RAWG)
+    if (game.rating) {
+      score += game.rating * 100;
+    }
+    
+    // Ratings count boost (popularity)
+    if (game.ratings_count) {
+      score += Math.min(Math.log10(game.ratings_count + 1) * 200, 800);
+    }
+    
+    // Metacritic boost
+    if (game.metacritic) {
+      score += game.metacritic * 5;
+    }
+    
+    // If it has a number that matches a number in the query, boost it
+    const queryNumbers = query.match(/\d+/g) || [];
+    const nameNumbers = name.match(/\d+/g) || [];
+    if (queryNumbers.length > 0 && nameNumbers.some(n => queryNumbers.includes(n))) {
+      score += 1000;
+    }
+    
+    // Penalize games with lots of colons/subtitles (usually special editions)
+    const colonCount = (name.match(/:/g) || []).length;
+    score -= colonCount * 100;
+    
+    return { ...game, _score: score };
+  });
+  
+  // Sort by score descending
+  scoredGames.sort((a, b) => b._score - a._score);
+  
+  // Remove score from output
+  return scoredGames.map(({ _score, ...game }) => game);
+}
+
 // ============ PUBLIC ROUTES ============
 
 app.get('/', (req, res) => {
   res.json({
-    message: 'EventHorizon API v5.0',
-    features: ['User Auth', 'Game Tracking', 'Auto-Discovery', 'Custom Events']
+    message: 'EventHorizon API v6.0',
+    features: ['User Auth', 'Game Tracking', 'Auto-Discovery', 'Custom Events', 'Smart Search']
   });
 });
 
+// Smart game search
 app.get('/api/games', async (req, res) => {
   const search = req.query.search;
   if (!search) {
@@ -466,7 +569,8 @@ app.get('/api/games', async (req, res) => {
   }
 
   try {
-    const url = `https://api.rawg.io/api/games?key=${RAWG_API_KEY}&search=${encodeURIComponent(search)}&page_size=20`;
+    // Fetch more results from RAWG to have better selection for smart sorting
+    const url = `https://api.rawg.io/api/games?key=${RAWG_API_KEY}&search=${encodeURIComponent(search)}&page_size=40&search_precise=true`;
     const response = await axios.get(url);
 
     const games = response.data.results.map(game => ({
@@ -474,12 +578,18 @@ app.get('/api/games', async (req, res) => {
       name: game.name,
       released: game.released,
       rating: game.rating,
+      ratings_count: game.ratings_count,
+      metacritic: game.metacritic,
       background_image: game.background_image,
       genres: game.genres?.map(g => g.name) || [],
       platforms: game.platforms?.map(p => p.platform.name) || []
     }));
 
-    res.json(games);
+    // Apply smart sorting
+    const sortedGames = smartSortGames(games, search);
+    
+    // Return top 20
+    res.json(sortedGames.slice(0, 20));
   } catch (error) {
     console.error('Game search error:', error.message);
     res.status(500).json({ error: 'Search failed' });
@@ -506,8 +616,9 @@ app.post('/api/discover/all', authenticateToken, async (req, res) => {
 
 // ============ START SERVER ============
 app.listen(PORT, () => {
-  console.log(`\n🚀 EventHorizon API v5.0`);
+  console.log(`\n🚀 EventHorizon API v6.0`);
   console.log(`📡 http://localhost:${PORT}`);
   console.log(`🔐 Auth: JWT`);
   console.log(`💾 Database: SQLite (better-sqlite3)`);
+  console.log(`🔍 Smart Search: Enabled`);
 });
