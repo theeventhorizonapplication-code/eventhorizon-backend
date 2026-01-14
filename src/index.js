@@ -6,11 +6,14 @@ const jwt = require('jsonwebtoken');
 const Database = require('better-sqlite3');
 const path = require('path');
 const fs = require('fs');
+const { OAuth2Client } = require('google-auth-library');
 require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 const JWT_SECRET = process.env.JWT_SECRET || 'eventhorizon-secret-key-change-in-production';
+const GOOGLE_CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
+const googleClient = new OAuth2Client(GOOGLE_CLIENT_ID);
 
 // Middleware
 app.use(cors());
@@ -224,7 +227,7 @@ app.post('/api/auth/login', async (req, res) => {
 // Get current user
 app.get('/api/auth/me', authenticateToken, (req, res) => {
   try {
-    const user = db.prepare('SELECT id, email, username, created_at FROM users WHERE id = ?').get(req.user.id);
+    const user = db.prepare('SELECT id, email, username, avatar, created_at FROM users WHERE id = ?').get(req.user.id);
 
     if (!user) {
       return res.status(404).json({ error: 'User not found' });
@@ -234,6 +237,85 @@ app.get('/api/auth/me', authenticateToken, (req, res) => {
   } catch (error) {
     console.error('Get user error:', error.message);
     res.status(500).json({ error: 'Failed to get user' });
+  }
+});
+
+// Google Sign-In
+app.post('/api/auth/google', async (req, res) => {
+  const { credential } = req.body;
+
+  if (!credential) {
+    return res.status(400).json({ error: 'Google credential required' });
+  }
+
+  try {
+    // Verify the Google token
+    const ticket = await googleClient.verifyIdToken({
+      idToken: credential,
+      audience: GOOGLE_CLIENT_ID,
+    });
+
+    const payload = ticket.getPayload();
+    const googleId = payload['sub'];
+    const email = payload['email'];
+    const name = payload['name'];
+    const picture = payload['picture'];
+
+    // Check if user exists by Google ID or email
+    let user = db.prepare('SELECT * FROM users WHERE google_id = ? OR email = ?').get(googleId, email.toLowerCase());
+
+    if (user) {
+      // Update Google ID if user exists by email but not Google ID
+      if (!user.google_id) {
+        db.prepare('UPDATE users SET google_id = ?, avatar = ? WHERE id = ?').run(googleId, picture, user.id);
+      }
+    } else {
+      // Create new user
+      // Generate username from email or name
+      let baseUsername = email.split('@')[0].toLowerCase().replace(/[^a-z0-9_]/g, '');
+      if (baseUsername.length < 3) baseUsername = name.toLowerCase().replace(/[^a-z0-9_]/g, '').substring(0, 10);
+      
+      let username = baseUsername;
+      let counter = 1;
+      
+      // Ensure unique username
+      while (db.prepare('SELECT id FROM users WHERE username = ?').get(username)) {
+        username = `${baseUsername}${counter}`;
+        counter++;
+      }
+
+      const result = db.prepare(
+        'INSERT INTO users (email, username, google_id, avatar) VALUES (?, ?, ?, ?)'
+      ).run(email.toLowerCase(), username, googleId, picture);
+
+      user = {
+        id: result.lastInsertRowid,
+        email: email.toLowerCase(),
+        username: username,
+        avatar: picture
+      };
+    }
+
+    // Generate JWT token
+    const token = jwt.sign(
+      { id: user.id, email: user.email, username: user.username },
+      JWT_SECRET,
+      { expiresIn: '7d' }
+    );
+
+    res.json({
+      message: 'Google sign-in successful',
+      token,
+      user: {
+        id: user.id,
+        email: user.email,
+        username: user.username,
+        avatar: user.avatar || picture
+      }
+    });
+  } catch (error) {
+    console.error('Google auth error:', error.message);
+    res.status(401).json({ error: 'Invalid Google credential' });
   }
 });
 
