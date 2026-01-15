@@ -885,6 +885,48 @@ app.get('/api/games', async (req, res) => {
   }
 });
 
+// Browse games by genre or tag
+app.get('/api/games/browse', async (req, res) => {
+  const { genres, tags } = req.query;
+  
+  if (!genres && !tags) {
+    return res.status(400).json({ error: 'Genre or tag required' });
+  }
+
+  try {
+    let url = `https://api.rawg.io/api/games?key=${RAWG_API_KEY}&ordering=-rating&page_size=24`;
+    
+    if (genres) {
+      url += `&genres=${encodeURIComponent(genres)}`;
+    }
+    if (tags) {
+      url += `&tags=${encodeURIComponent(tags)}`;
+    }
+    
+    // Only get recent-ish games (2015+)
+    url += '&dates=2015-01-01,2030-12-31';
+    
+    const response = await axios.get(url);
+
+    const games = response.data.results.map(game => ({
+      id: game.id,
+      name: game.name,
+      released: game.released,
+      rating: game.rating,
+      ratings_count: game.ratings_count,
+      metacritic: game.metacritic,
+      background_image: game.background_image,
+      genres: game.genres?.map(g => g.name) || [],
+      platforms: game.platforms?.map(p => p.platform.name) || []
+    }));
+
+    res.json(games);
+  } catch (error) {
+    console.error('Genre browse error:', error.message);
+    res.status(500).json({ error: 'Browse failed' });
+  }
+});
+
 app.post('/api/discover/all', authenticateToken, async (req, res) => {
   try {
     const games = db.prepare('SELECT game_id, game_name FROM user_games WHERE user_id = ?').all(req.user.id);
