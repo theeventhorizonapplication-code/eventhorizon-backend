@@ -78,12 +78,13 @@ function initializeDatabase() {
     )
   `);
 
-  // Auto-discovered events cache table
+  // Auto-discovered events cache table - added event_key for deduplication
   db.exec(`
     CREATE TABLE IF NOT EXISTS auto_events (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       game_id INTEGER NOT NULL,
-      steam_gid TEXT UNIQUE,
+      steam_gid TEXT,
+      event_key TEXT,
       type TEXT NOT NULL,
       title TEXT NOT NULL,
       date TEXT NOT NULL,
@@ -91,7 +92,8 @@ function initializeDatabase() {
       source TEXT,
       source_url TEXT,
       game_name TEXT,
-      discovered_at DATETIME DEFAULT CURRENT_TIMESTAMP
+      discovered_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+      UNIQUE(game_id, event_key)
     )
   `);
 
@@ -453,9 +455,9 @@ async function findSteamAppId(gameName) {
   }
 }
 
-async function fetchSteamNews(appId, count = 30) {
+async function fetchSteamNews(appId, count = 50) {
   try {
-    const url = `https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=${appId}&count=${count}&maxlength=500&format=json`;
+    const url = `https://api.steampowered.com/ISteamNews/GetNewsForApp/v2/?appid=${appId}&count=${count}&maxlength=1000&format=json`;
     const response = await axios.get(url);
     return response.data?.appnews?.newsitems || [];
   } catch (error) {
@@ -464,40 +466,216 @@ async function fetchSteamNews(appId, count = 30) {
   }
 }
 
+// ============ IMPROVED EVENT PARSING ============
+
+// Patterns that indicate news/opinion articles (NOT actual events)
+const NEWS_ARTICLE_PATTERNS = [
+  /could be/i,
+  /might be/i,
+  /may be/i,
+  /looks like/i,
+  /seems like/i,
+  /here's (a|what|how|why)/i,
+  /everything you need to know/i,
+  /what we know/i,
+  /rumors?/i,
+  /leak(s|ed)?/i,
+  /reportedly/i,
+  /allegedly/i,
+  /speculation/i,
+  /predict(s|ed|ion)/i,
+  /expect(s|ed|ing)?/i,
+  /should you/i,
+  /is it worth/i,
+  /best .* in/i,
+  /top \d+/i,
+  /guide to/i,
+  /how to/i,
+  /tips (for|and)/i,
+  /grab .* for cheap/i,
+  /first (major )?sale/i,
+  /on sale/i,
+  /discount/i,
+  /deal(s)?/i,
+  /perfect reason/i,
+  /reasons to/i,
+  /incredibly close/i,
+  /looks great/i,
+  /nerds and/i,
+  /pre-.*patch/i,
+];
+
+// Official sources we trust (prioritize these)
+const OFFICIAL_SOURCES = [
+  'steam_community_announcements',
+];
+
+// Extract a clean event identifier for deduplication
+function extractEventKey(title, type) {
+  const titleLower = title.toLowerCase();
+  
+  // Extract version numbers: "Patch 1.16.1" -> "patch-1.16.1"
+  const versionMatch = titleLower.match(/(?:patch|update|version|hotfix|v)[\s\-]*(\d+(?:\.\d+)+(?:\.\d+)?)/i);
+  if (versionMatch) {
+    return `patch-${versionMatch[1]}`;
+  }
+  
+  // Extract season numbers: "Season 11" -> "season-11"
+  const seasonMatch = titleLower.match(/season[\s\-]*(\d+)/i);
+  if (seasonMatch) {
+    return `season-${seasonMatch[1]}`;
+  }
+  
+  // Extract chapter numbers: "Chapter 5" -> "chapter-5"
+  const chapterMatch = titleLower.match(/chapter[\s\-]*(\d+)/i);
+  if (chapterMatch) {
+    return `chapter-${chapterMatch[1]}`;
+  }
+  
+  // Extract expansion/DLC names
+  const expansionPatterns = [
+    /expansion[:\s]+([^|]+)/i,
+    /dlc[:\s]+([^|]+)/i,
+  ];
+  for (const pattern of expansionPatterns) {
+    const match = titleLower.match(pattern);
+    if (match) {
+      return `expansion-${match[1].trim().substring(0, 30).replace(/\s+/g, '-')}`;
+    }
+  }
+  
+  // Fallback: use first 40 chars of title, normalized
+  const normalized = titleLower
+    .replace(/[^a-z0-9\s]/g, '')
+    .replace(/\s+/g, '-')
+    .substring(0, 40);
+  return `${type}-${normalized}`;
+}
+
+// Clean up event title (remove game name prefix, standardize format)
+function cleanEventTitle(title, gameName) {
+  let cleaned = title;
+  
+  // Remove common prefixes like "ELDEN RING - " or "Diablo IV | "
+  const prefixPatterns = [
+    new RegExp(`^${gameName}[\\s\\-|:]+`, 'i'),
+    /^[A-Z\s]+[\-|:]\s*/,  // All caps prefix
+  ];
+  
+  for (const pattern of prefixPatterns) {
+    cleaned = cleaned.replace(pattern, '');
+  }
+  
+  return cleaned.trim();
+}
+
+// Determine if this is an official announcement vs news article
+function isOfficialAnnouncement(item) {
+  // Check if from official Steam announcements
+  if (item.feedname && OFFICIAL_SOURCES.some(s => item.feedname.includes(s))) {
+    return true;
+  }
+  
+  // Check if author looks official (not a news site)
+  const newsAuthors = ['editor@', 'steam', 'pcgamesn', 'rockpapershotgun', 'vg247', 'kotaku', 'ign', 'gamespot'];
+  const authorLower = (item.author || '').toLowerCase();
+  if (newsAuthors.some(n => authorLower.includes(n))) {
+    return false;
+  }
+  
+  return true;
+}
+
+// Check if title looks like a news article (not an actual event)
+function isNewsArticle(title) {
+  return NEWS_ARTICLE_PATTERNS.some(pattern => pattern.test(title));
+}
+
+// Improved event parsing with deduplication
 function parseSteamNews(newsItems, gameId, gameName) {
-  const events = [];
-
+  const eventMap = new Map(); // key -> event (for deduplication)
+  
   for (const item of newsItems) {
-    const titleLower = item.title.toLowerCase();
+    const title = item.title;
+    const titleLower = title.toLowerCase();
+    
+    // Skip news articles and opinion pieces
+    if (isNewsArticle(title)) {
+      continue;
+    }
+    
+    // Determine event type
     let eventType = null;
-
-    if (titleLower.includes('patch') || titleLower.includes('hotfix') || titleLower.includes('bug fix') ||
-        titleLower.includes('update notes') || titleLower.match(/v?\d+\.\d+/)) {
+    
+    // Patch detection
+    if (titleLower.includes('patch notes') || 
+        titleLower.includes('hotfix') || 
+        titleLower.includes('bug fix') ||
+        titleLower.match(/patch[\s\-]*v?\d+/i) ||
+        titleLower.match(/version[\s\-]*\d+\.\d+/i) ||
+        titleLower.match(/update[\s\-]*\d+\.\d+/i) ||
+        (titleLower.includes('patch') && titleLower.match(/\d+\.\d+/))) {
       eventType = 'patch';
-    } else if (titleLower.includes('season') || titleLower.includes('chapter') || titleLower.match(/season\s*\d+/i)) {
+    }
+    // Season detection  
+    else if (titleLower.match(/season[\s\-]*\d+/i) && 
+             (titleLower.includes('now live') || 
+              titleLower.includes('available') || 
+              titleLower.includes('launch') ||
+              titleLower.includes('begins') ||
+              titleLower.includes('start'))) {
       eventType = 'season';
-    } else if (titleLower.includes('expansion') || titleLower.includes('dlc') || titleLower.includes('major update')) {
+    }
+    // Expansion/DLC detection
+    else if ((titleLower.includes('expansion') || titleLower.includes('dlc')) &&
+             (titleLower.includes('now') || 
+              titleLower.includes('available') || 
+              titleLower.includes('launch') ||
+              titleLower.includes('release'))) {
       eventType = 'expansion';
     }
-
+    
     if (!eventType) continue;
-
+    
+    // Generate deduplication key
+    const eventKey = extractEventKey(title, eventType);
+    
+    // Check if we already have this event
+    const existing = eventMap.get(eventKey);
+    
+    if (existing) {
+      // Prefer official announcements over news articles
+      const existingIsOfficial = isOfficialAnnouncement(existing._raw);
+      const newIsOfficial = isOfficialAnnouncement(item);
+      
+      if (newIsOfficial && !existingIsOfficial) {
+        // Replace with official version
+      } else {
+        // Keep existing, skip this one
+        continue;
+      }
+    }
+    
     const eventDate = new Date(item.date * 1000).toISOString().split('T')[0];
-
-    events.push({
+    const cleanedTitle = cleanEventTitle(title, gameName);
+    
+    eventMap.set(eventKey, {
       steam_gid: item.gid,
+      event_key: eventKey,
       game_id: gameId,
       game_name: gameName,
       type: eventType,
-      title: item.title,
-      description: item.contents?.substring(0, 300) || '',
+      title: cleanedTitle,
+      description: item.contents?.substring(0, 500) || '',
       date: eventDate,
       source: 'steam',
-      source_url: item.url
+      source_url: item.url,
+      _raw: item // Keep for comparison, won't be stored
     });
   }
-
-  return events;
+  
+  // Convert map to array and remove _raw
+  return Array.from(eventMap.values()).map(({ _raw, ...event }) => event);
 }
 
 async function discoverEventsForGame(gameId, gameName) {
@@ -511,21 +689,35 @@ async function discoverEventsForGame(gameId, gameName) {
 
   console.log(`  🎮 Steam App ID: ${steamInfo.appId}`);
   const news = await fetchSteamNews(steamInfo.appId);
-  console.log(`  📰 Raw news: ${news.length}`);
+  console.log(`  📰 Raw news items: ${news.length}`);
 
   const events = parseSteamNews(news, gameId, gameName);
-  console.log(`  🎯 Filtered events: ${events.length}`);
+  console.log(`  🎯 Deduplicated events: ${events.length}`);
+
+  // Clear old events for this game and insert new ones
+  db.prepare('DELETE FROM auto_events WHERE game_id = ?').run(gameId);
 
   const insertStmt = db.prepare(`
-    INSERT OR IGNORE INTO auto_events (game_id, steam_gid, type, title, date, description, source, source_url, game_name)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+    INSERT OR REPLACE INTO auto_events (game_id, steam_gid, event_key, type, title, date, description, source, source_url, game_name)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
   `);
 
   for (const event of events) {
     try {
-      insertStmt.run(event.game_id, event.steam_gid, event.type, event.title, event.date, event.description, event.source, event.source_url, event.game_name);
+      insertStmt.run(
+        event.game_id, 
+        event.steam_gid, 
+        event.event_key,
+        event.type, 
+        event.title, 
+        event.date, 
+        event.description, 
+        event.source, 
+        event.source_url, 
+        event.game_name
+      );
     } catch (err) {
-      // Ignore duplicate errors
+      console.error(`  ❌ Insert error: ${err.message}`);
     }
   }
 
@@ -561,7 +753,21 @@ function smartSortGames(games, searchQuery) {
   
   const filteredGames = games.filter(game => {
     const name = game.name.toLowerCase();
-    return !junkPatterns.some(pattern => pattern.test(name));
+    
+    // Filter out junk
+    if (junkPatterns.some(pattern => pattern.test(name))) {
+      return false;
+    }
+    
+    // Filter out very old games (before 2010) unless exact match
+    if (game.released) {
+      const year = parseInt(game.released.split('-')[0]);
+      if (year < 2010 && name !== query) {
+        return false;
+      }
+    }
+    
+    return true;
   });
   
   // Score each game
@@ -592,7 +798,8 @@ function smartSortGames(games, searchQuery) {
     // Recency boost - newer games ranked higher
     if (game.released) {
       const year = parseInt(game.released.split('-')[0]);
-      if (year >= 2023) score += 1500;
+      if (year >= 2024) score += 2000;
+      else if (year >= 2023) score += 1500;
       else if (year >= 2020) score += 1000;
       else if (year >= 2015) score += 500;
       else if (year >= 2010) score += 200;
@@ -638,8 +845,8 @@ function smartSortGames(games, searchQuery) {
 
 app.get('/', (req, res) => {
   res.json({
-    message: 'EventHorizon API v6.0',
-    features: ['User Auth', 'Game Tracking', 'Auto-Discovery', 'Custom Events', 'Smart Search']
+    message: 'EventHorizon API v7.0',
+    features: ['User Auth', 'Game Tracking', 'Smart Event Discovery', 'Deduplication', 'Custom Events', 'Smart Search']
   });
 });
 
@@ -670,8 +877,8 @@ app.get('/api/games', async (req, res) => {
     // Apply smart sorting
     const sortedGames = smartSortGames(games, search);
     
-    // Return top 20
-    res.json(sortedGames.slice(0, 20));
+    // Return top 15
+    res.json(sortedGames.slice(0, 15));
   } catch (error) {
     console.error('Game search error:', error.message);
     res.status(500).json({ error: 'Search failed' });
@@ -698,9 +905,10 @@ app.post('/api/discover/all', authenticateToken, async (req, res) => {
 
 // ============ START SERVER ============
 app.listen(PORT, () => {
-  console.log(`\n🚀 EventHorizon API v6.0`);
+  console.log(`\n🚀 EventHorizon API v7.0`);
   console.log(`📡 http://localhost:${PORT}`);
   console.log(`🔐 Auth: JWT`);
   console.log(`💾 Database: SQLite (better-sqlite3)`);
   console.log(`🔍 Smart Search: Enabled`);
+  console.log(`🎯 Event Deduplication: Enabled`);
 });
