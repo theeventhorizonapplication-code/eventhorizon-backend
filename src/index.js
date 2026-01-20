@@ -44,9 +44,17 @@ function initializeDatabase() {
       password TEXT,
       google_id TEXT UNIQUE,
       avatar TEXT,
+      is_guest INTEGER DEFAULT 0,
       created_at DATETIME DEFAULT CURRENT_TIMESTAMP
     )
   `);
+
+  // Add is_guest column if it doesn't exist (for existing databases)
+  try {
+    db.exec('ALTER TABLE users ADD COLUMN is_guest INTEGER DEFAULT 0');
+  } catch (e) {
+    // Column already exists, ignore
+  }
 
   // User games table
   db.exec(`
@@ -318,6 +326,49 @@ app.post('/api/auth/google', async (req, res) => {
   } catch (error) {
     console.error('Google auth error:', error.message);
     res.status(401).json({ error: 'Invalid Google credential' });
+  }
+});
+
+// Guest Login - creates a new temporary guest account each time
+app.post('/api/auth/guest', async (req, res) => {
+  try {
+    // Generate a unique guest username
+    const guestId = Date.now().toString(36) + Math.random().toString(36).substring(2, 7);
+    const username = `guest_${guestId}`;
+    const email = `${username}@guest.local`;
+
+    // Create the guest user
+    const result = db.prepare(
+      'INSERT INTO users (email, username, password, is_guest) VALUES (?, ?, ?, ?)'
+    ).run(email, username, '', 1);
+
+    const user = {
+      id: result.lastInsertRowid,
+      email: email,
+      username: username,
+      is_guest: true
+    };
+
+    // Generate JWT token (shorter expiry for guests)
+    const token = jwt.sign(
+      { id: user.id, email: user.email, username: user.username, is_guest: true },
+      JWT_SECRET,
+      { expiresIn: '24h' }
+    );
+
+    res.json({
+      message: 'Guest login successful',
+      token,
+      user: {
+        id: user.id,
+        email: user.email,
+        username: 'Guest',
+        is_guest: true
+      }
+    });
+  } catch (error) {
+    console.error('Guest login error:', error.message);
+    res.status(500).json({ error: 'Guest login failed' });
   }
 });
 
